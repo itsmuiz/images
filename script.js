@@ -28,14 +28,16 @@ async function main() {
             // Create the product card using a template literal
             let productCard = `
                 <div class="product-item animate-on-scroll">
-                    <img src="${a.href}" alt="${productName}">
-                    <h3>${productName}</h3>
+                    <img src="./img/${a.href.split('/img/')[1]}" alt="${productName}">
+                    <h3>${a.href.split('/img/')[1].replace('.jpg', '')}</h3>
                     <p>${productPrice}</p>
                     <button class="btn" onclick="sendWhatsAppMessage('${productName}', '${productPrice}', '${productDetails}')">
                         Add to Cart
                     </button>
                 </div>
             `;
+            console.log();
+            
             
             // Append the product card to the container
             container.innerHTML += productCard;
